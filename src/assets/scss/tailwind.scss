@@ -1,0 +1,27 @@
+/* Template Name: Hoxia - Tailwind CSS Web Hosting Template
+   Author: Shreethemes
+   Email: support@shreethemes.in
+   Website: https://shreethemes.in
+   Version: 1.0.0
+   Created: March 2022
+   File: Main Css File
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// FONTS
+@import "custom/fonts";
+
+//Switcher
+.label {
+   .ball {
+       transition: transform 0.2s linear;
+       @apply translate-x-0;
+   }
+}
+
+.checkbox:checked + .label .ball {
+  @apply translate-x-6;
+}

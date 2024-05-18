@@ -1,0 +1,84 @@
+@@include("partials/main.html")
+    <head>
+        @@include("partials/title-meta.html", {"title": "Calculate"})
+
+        <!-- Css -->
+        @@include("partials/head-css.html")
+    </head>
+    
+    @@include("partials/body.html")
+        
+        <!-- Hero Start -->
+        <section class="py-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 fixed top-0 start-0 end-0 z-3">
+            <div class="container relative">
+                <div class="md:flex justify-center">
+                    <div class="md:w-full text-center">
+                        <h5 class="text-lg tracking-[0.015em] font-semibold">Calculate - Tailwind CSS Working Calculator Template</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Hero End -->
+
+        <section class="relative bg-slate-50 dark:bg-slate-800 h-screen flex justify-center items-center bg-[url('../../assets/images/bg.png')] bg-no-repeat bg-cover">
+            <div class="container">
+                <div class="flex justify-center">
+                    <div class="w-[300px]">
+                        <div class="rounded p-4 bg-white dark:bg-slate-900 shadow dark:shadow-gray-700">
+                            <input type="text" id="Calculate" class="form-input w-full py-2 px-3 h-16 bg-slate-50 dark:bg-slate-800 dark:text-white rounded outline-none border-0 focus:ring-0 font-medium text-2xl mb-3 text-end" maxlength="15" placeholder="0" disabled>
+                            <div class="buttons grid grid-cols-3 gap-3">
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-slate-50 dark:bg-slate-800 mx-auto shadow-sm dark:shadow-gray-800" onclick="clearResult()">AC</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-2xl font-medium text-center rounded-full bg-slate-50 dark:bg-slate-800 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('+')">+</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-2xl font-medium text-center rounded-full bg-slate-50 dark:bg-slate-800 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('-')">−</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-2xl font-medium text-center rounded-full bg-slate-50 dark:bg-slate-800 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('*')">×</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-2xl font-medium text-center rounded-full bg-slate-50 dark:bg-slate-800 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('/')">÷</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-2xl font-medium text-center rounded-full bg-slate-50 dark:bg-slate-800 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('.')">•</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('7')">7</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('8')">8</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('9')">9</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('4')">4</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('5')">5</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('6')">6</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('1')">1</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('2')">2</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('3')">3</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('0')">0</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-xl font-semibold text-center rounded-full bg-white dark:bg-slate-900 mx-auto shadow-sm dark:shadow-gray-800" onclick="appendToResult('00')">00</button>
+                                <button class="size-[60px] inline-flex items-center justify-center tracking-wide align-middle duration-500 text-2xl font-medium text-center rounded-full bg-red-600 text-white mx-auto shadow-sm dark:shadow-gray-800" onclick="calculate()">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Start Footer -->
+        <footer class="py-6 bg-slate-900 shadow dark:shadow-gray-700 fixed bottom-0 start-0 end-0">
+            <div class="container">
+                <div class="grid md:grid-cols-2 items-center">
+                    <div class="md:text-start text-center">
+                        <p class="text-gray-400">© <script>document.write(new Date().getFullYear())</script> Calculate. Designed by <a href="https://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p>
+                    </div>
+
+                    <ul class="list-none foot-icon md:text-end text-center md:mt-0 mt-4">
+                        <li class="inline"><a href="https://1.envato.market/calculate" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-600 rounded-md text-slate-300 hover:text-white hover:bg-red-600"><i data-feather="shopping-cart" class="h-4 w-4 align-middle" title="Buy Now"></i></a></li>
+                        <li class="inline"><a href="https://dribbble.com/shreethemes" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-600 rounded-md text-slate-300 hover:text-white hover:bg-red-600"><i data-feather="dribbble" class="h-4 w-4 align-middle" title="dribbble"></i></a></li>
+                        <li class="inline"><a href="http://linkedin.com/company/shreethemes" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-600 rounded-md text-slate-300 hover:text-white hover:bg-red-600"><i data-feather="linkedin" class="h-4 w-4 align-middle" title="Linkedin"></i></a></li>
+                        <li class="inline"><a href="https://www.facebook.com/shreethemes" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-600 rounded-md text-slate-300 hover:text-white hover:bg-red-600"><i data-feather="facebook" class="h-4 w-4 align-middle" title="facebook"></i></a></li>
+                        <li class="inline"><a href="https://www.instagram.com/shreethemes/" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-600 rounded-md text-slate-300 hover:text-white hover:bg-red-600"><i data-feather="instagram" class="h-4 w-4 align-middle" title="instagram"></i></a></li>
+                        <li class="inline"><a href="https://twitter.com/shreethemes" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-600 rounded-md text-slate-300 hover:text-white hover:bg-red-600"><i data-feather="twitter" class="h-4 w-4 align-middle" title="twitter"></i></a></li>
+                        <li class="inline"><a href="mailto:support@shreethemes.in" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-600 rounded-md text-slate-300 hover:text-white hover:bg-red-600"><i data-feather="mail" class="h-4 w-4 align-middle" title="email"></i></a></li>
+                    </ul><!--end icon-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </footer><!--end footer-->
+        <!-- End Footer -->
+
+        @@include("partials/switcher.html")
+
+        <!-- JAVASCRIPTS -->
+        <script src="assets/libs/feather-icons/feather.min.js"></script>
+        @@include("partials/script-file.html")
+        <!-- JAVASCRIPTS -->
+    </body>
+</html>
